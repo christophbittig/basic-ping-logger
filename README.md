@@ -10,4 +10,4 @@ Logs ping data to an excel file with a chart for plotting latency/packet drop is
 - `pip install -r requirements.txt`
 - `python main.py`
 
-> NOTE: Excel files are created with the filename format timestamp `ping_data_{start_time}.xlsx` and stored in the `basic-ping-logger` directory.
+> NOTE: Excel files are created with the filename format timestamp `ping_data_{start_time}.xlsx`.
