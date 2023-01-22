@@ -1,5 +1,6 @@
 # basic-ping-logger
 Logs ping data to an excel file with a chart for plotting latency/packet drop issues.
+![screenshot](image.png)
 
 # Installation & Usage
 
