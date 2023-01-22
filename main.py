@@ -67,7 +67,7 @@ def save_data(data: pd.DataFrame, filename: str) -> bool:
 if __name__ == "__main__":
     start_time = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
     save_filename = f"ping_data_{start_time}.xlsx"
-
+    print(f"Starting ping logger at {datetime.now()}...")
     my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Dropped'])
 
     while True:
