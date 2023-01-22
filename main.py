@@ -60,5 +60,5 @@ if __name__ == "__main__":
             my_data.loc[len(my_data.index)] = [ping_time, latency, packet_loss]
             ping_count += 1
     
-        if len(my_data) % 10 == 0:
+        if len(my_data) % 32 == 0: # Must be a multiple of four since ping responses have four values
             save_data(my_data, save_file)
