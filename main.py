@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 import pandas as pd
 import re
 import subprocess
@@ -39,7 +39,9 @@ def save_data(data: pd.DataFrame, filename: str) -> bool:
         return False
 
 if __name__ == "__main__":
-    save_file = f"ping_data-{datetime.now()}.xlsx"
+    datetime_string = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+    save_filename = f"ping_data-{datetime_string}.xlsx"
+
     my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Dropped'])
 
     while True:
@@ -59,4 +61,4 @@ if __name__ == "__main__":
             ping_count += 1
     
         if len(my_data) % 32 == 0: # Must be a multiple of four since ping responses have four values
-            save_data(my_data, save_file)
+            save_data(my_data, save_filename)
