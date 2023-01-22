@@ -39,8 +39,8 @@ def save_data(data: pd.DataFrame, filename: str) -> bool:
         return False
 
 if __name__ == "__main__":
-    datetime_string = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
-    save_filename = f"ping_data-{datetime_string}.xlsx"
+    datetime_string = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+    save_filename = f"ping_data_{datetime_string}.xlsx"
 
     my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Dropped'])
 
