@@ -41,7 +41,7 @@ def save_data(data: pd.DataFrame, filename: str) -> bool:
 
 if __name__ == "__main__":
     save_file = "ping_data.xlsx"
-    my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Loss'])
+    my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Dropped'])
 
     while True:
         time_when_command_started = datetime.now()
@@ -52,7 +52,11 @@ if __name__ == "__main__":
         ping_count = 1
         for latency in response_times:
             ping_time = time_when_command_started + timedelta(seconds=ping_count)
-            my_data.loc[len(my_data.index)] = [ping_time, latency, packet_loss]
+            if latency == 0:
+                packet_dropped = True 
+            else:
+                packet_dropped = False
+            my_data.loc[len(my_data.index)] = [ping_time, latency, packet_dropped]
             ping_count += 1
     
         if len(my_data) % 32 == 0: # Must be a multiple of four since ping responses have four values
