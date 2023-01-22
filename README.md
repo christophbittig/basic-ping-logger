@@ -10,7 +10,7 @@ Logs ping data to an excel file with a chart for plotting latency/packet drop is
 - `pip install -r requirements.txt`
 - `python pinger.py`
 
-```powershell
+```
 usage: pinger.py [-h] [-t TARGET] [-f SAVE_FREQUENCY] [-o OUTPUT_FILE]
 
 optional arguments:
