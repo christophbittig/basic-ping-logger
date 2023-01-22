@@ -40,12 +40,12 @@ def save_data(data: pd.DataFrame, filename: str) -> bool:
         return False
 
 if __name__ == "__main__":
-    save_file = "ping_data.xlsx"
+    save_file = f"ping_data-{datetime.now()}.xlsx"
     my_data = pd.DataFrame(columns=['Time', 'Latency', 'Packet Dropped'])
 
     while True:
         time_when_command_started = datetime.now()
-        ping_response: str = run_command(['ping', "google.com"])
+        ping_response: str = run_command(['ping', "8.8.8.8"])
         response_times: list[int] = parse_latency(ping_response)
         packet_loss: int = parse_packet_loss(ping_response)
         
