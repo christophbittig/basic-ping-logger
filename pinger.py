@@ -100,7 +100,7 @@ if __name__ == "__main__":
     parser.add_argument('-f', '--save-frequency', type=int, default=32, help='Number of pings to run between file saves. Should be a multiple of four.')
     parser.add_argument('-o', '--output-file', type=str, default=f"ping_data_{start_time}.xlsx", help='Output excel file.')
     args = parser.parse_args()
-    if args.save_freqency % 4 != 0:
+    if args.save_frequency % 4 != 0:
         raise ValueError(f"--save-frequency must be a multiple of four. You provided {args.save_frequency}.")
 
     main_loop(args.output_file, target=args.target, save_frequency=args.save_frequency)
