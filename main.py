@@ -12,7 +12,6 @@ def parse_packet_loss(ping_response: str) -> int:
     packet_loss = 0
     if match := re.search(r'\((\d+)% loss\)', ping_response):
         packet_loss = int(match.group(1))
-        print(f"{packet_loss=}")
 
     return packet_loss
     
