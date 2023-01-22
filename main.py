@@ -9,11 +9,12 @@ def run_command(command: str) -> str:
     return raw_output.stdout.decode('utf-8')
 
 def parse_packet_loss(ping_response: str) -> int:
+    packet_loss = 0
     if match := re.search(r'\((\d+)% loss\)', ping_response):
         packet_loss = int(match.group(1))
+        print(f"{packet_loss=}")
 
-    # TODO: Handle this better if there is no match
-    return packet_loss or None
+    return packet_loss
     
 def parse_latency(ping_response: str) -> list[int]:
     packet_lines:list[str] = ping_response.splitlines()[2:6]
